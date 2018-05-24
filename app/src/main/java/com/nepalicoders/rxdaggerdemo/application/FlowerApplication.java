@@ -15,7 +15,6 @@ import com.nepalicoders.rxdaggerdemo.model.Constant;
 
 public class FlowerApplication extends Application {
 
-    private NetworkComponent mNetworkComponent;
     private ApiComponent mApiComponent;
 
     @Override

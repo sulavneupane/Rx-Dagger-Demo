@@ -15,17 +15,12 @@ import io.reactivex.observers.DisposableObserver;
  * Created by Sulav on 8/28/17.
  */
 
-public class FlowerPresenter extends BasePresenter implements Observer<List<FlowerResponse>> {
+public class FlowerPresenter extends BasePresenter<List<FlowerResponse>> implements Observer<List<FlowerResponse>> {
 
-    FlowerViewInterface mViewInterface;
+    private FlowerViewInterface mViewInterface;
 
     public FlowerPresenter(FlowerViewInterface viewInterface) {
         mViewInterface = viewInterface;
-    }
-
-    @Override
-    public void onSubscribe(@NonNull Disposable d) {
-
     }
 
     @Override

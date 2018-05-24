@@ -1,5 +1,6 @@
 package com.nepalicoders.rxdaggerdemo.model;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,13 +25,14 @@ public class FlowerAdapter extends RecyclerView.Adapter<FlowerAdapter.Holder> {
         mFlowerList = new ArrayList<>();
     }
 
+    @NonNull
     @Override
-    public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new Holder(mInflater.inflate(R.layout.item_flower, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(Holder holder, int position) {
+    public void onBindViewHolder(@NonNull Holder holder, int position) {
 
     }
 
@@ -44,9 +46,9 @@ public class FlowerAdapter extends RecyclerView.Adapter<FlowerAdapter.Holder> {
         notifyDataSetChanged();
     }
 
-    public class Holder extends RecyclerView.ViewHolder {
+    class Holder extends RecyclerView.ViewHolder {
 
-        public Holder(View itemView) {
+        Holder(View itemView) {
             super(itemView);
         }
 

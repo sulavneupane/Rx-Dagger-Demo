@@ -1,6 +1,10 @@
 package com.nepalicoders.rxdaggerdemo.base;
 
+import com.nepalicoders.rxdaggerdemo.model.FlowerResponse;
+
 import org.reactivestreams.Subscriber;
+
+import java.util.List;
 
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
@@ -16,7 +20,7 @@ import io.reactivex.schedulers.Schedulers;
  * Created by Sulav on 8/28/17.
  */
 
-public abstract class BasePresenter implements Presenter {
+public abstract class BasePresenter<T> extends DisposableObserver<T> implements Presenter {
 
     private CompositeDisposable mCompositeDisposable;
 
@@ -47,14 +51,14 @@ public abstract class BasePresenter implements Presenter {
         disposeAll();
     }
 
-    protected void disposeAll() {
+    void disposeAll() {
         if (mCompositeDisposable != null) {
             mCompositeDisposable.dispose();
             mCompositeDisposable.clear();
         }
     }
 
-    protected <T> void subscribe(Observable<T> observable, Observer<T> observer) {
+    <T> void subscribe(Observable<T> observable, Observer<T> observer) {
         DisposableObserver<T> disposableObserver = (DisposableObserver<T>) observer;
 
         Disposable disposable = observable.subscribeOn(Schedulers.newThread())
