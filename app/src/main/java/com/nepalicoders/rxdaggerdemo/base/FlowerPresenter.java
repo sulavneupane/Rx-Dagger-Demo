@@ -41,5 +41,6 @@ public class FlowerPresenter extends BasePresenter<List<FlowerResponse>> impleme
     public void fetchFlowers() {
         disposeAll();
         subscribe(mViewInterface.getFlowers(), FlowerPresenter.this);
+        
     }
 }
